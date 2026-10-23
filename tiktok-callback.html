@@ -11,6 +11,11 @@ const p=new URLSearchParams(location.search);
 const c=p.get('code'), e=p.get('error_description')||p.get('error');
 document.getElementById('msg').textContent = c ? 'Bağlantı tamamlandı. Bu kodu Sararmış Fotoğraf stüdyosuna yapıştırın:' : (e ? 'Hata: '+e : 'Kod bulunamadı.');
 document.getElementById('code').textContent = c || '';
+if (c) {
+  // Hand the code to the publishing panel running on the owner's computer.
+  document.getElementById('msg').textContent = 'Bağlantı tamamlandı, yayın paneline dönülüyor…';
+  setTimeout(() => location.href = 'http://127.0.0.1:8765/callback?code=' + encodeURIComponent(c), 800);
+}
 </script>
 <p><a href="index.html">Ana sayfa</a></p>
 </main></body></html>
