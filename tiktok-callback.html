@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok bağlantısı – Sararmış Fotoğraf</title>
+<style>body{margin:0;font-family:Georgia,serif;background:#f3e6c8;color:#3b2418;line-height:1.6}main{max-width:640px;margin:0 auto;padding:48px 20px}code{display:block;word-break:break-all;background:#fff8e6;padding:12px;border:1px solid #c9a46b}</style>
+</head><body><main>
+<h1>TikTok bağlantısı</h1>
+<p id="msg">Kod bekleniyor…</p>
+<code id="code"></code>
+<script>
+const p=new URLSearchParams(location.search);
+const c=p.get('code'), e=p.get('error_description')||p.get('error');
+document.getElementById('msg').textContent = c ? 'Bağlantı tamamlandı. Bu kodu Sararmış Fotoğraf stüdyosuna yapıştırın:' : (e ? 'Hata: '+e : 'Kod bulunamadı.');
+document.getElementById('code').textContent = c || '';
+</script>
+<p><a href="index.html">Ana sayfa</a></p>
+</main></body></html>
